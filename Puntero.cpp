@@ -42,7 +42,7 @@ int main (){
     
     printf("\n");
    
-   printf ("================ TERCER CASO ==================================\n");
+   printf ("==================== TERCER CASO ==================================\n");
 
    printf("Puntero de Punteros\n");
    printf("Definimos un entero y\n int y = 5;\n");
@@ -59,6 +59,16 @@ int main (){
    int **q= &pr;
    printf("La dirreccion del puntero pr es %d \n", q);
    
-    return 0;
+   printf ("=================== CUARTO CASO ==================================\n");
+
+   printf ("Asignacion mediante memoria dinamica\n\n");
+   
+   printf ("double * p1 = new double;\n");
+   double * p1 = new double;
+   double r = 88.433;
+   p1 = &r; // tambien se puede hacer asi *p1 = r;
+   printf("*p1 = 88.33;\n");
+   printf ("el valor de p1 es %d\n", p1);
+   return 0;
 
 }
