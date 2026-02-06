@@ -59,7 +59,7 @@ int main (){
    int **q= &pr;
    printf("La dirreccion del puntero pr es %d \n", q);
    
-   printf ("=================== CUARTO CASO ==================================\n");
+   printf ("=================== CUARTO CASO ==================================\n\n");
 
    printf ("Asignacion mediante memoria dinamica\n\n");
    
@@ -69,6 +69,38 @@ int main (){
    p1 = &r; // tambien se puede hacer asi *p1 = r;
    printf("*p1 = 88.33;\n");
    printf ("el valor de p1 es %d\n", p1);
-   return 0;
+   
+   
+   printf ("=================== QUINTO CASO ==================================\n\n");
+    double x1 = 5.5; // Le asignamos a x1 el valor de 5.5
+    double y1 = 10.2; // le asignamos ay1  el valor de 10.2
+    double z1;// instanciamos z1
+    printf("double x1 = 5.5;\n  double y1 = 10.2;\n double z1;\n");
+    
+    double *px1 = &x1; // al puntero px1 le asignamos la direccion de x1
+    printf("double *px1 = &x1;\n");
+    printf("al puntero px1 le asignamos la direccion de x1\n\n");
+    double& ry1 = y1; // A la y1 le damos una "referencia" ry1
+    printf("double& ry1 = y1;\n");
+    printf("A la y1 le damos una referencia ry1\n\n");
+    *px1 = 3.14; // la variable x1 ahora toma el valor  3.14
+    printf("*px1 = 3.14;\n");
+    printf("la variable x1 ahora toma el valor  3.14\n\n"); 
+    z1 = ry1; // ahora z1 toma el valor de ry1 (que es y1 = 10.2)
+    printf("z1 = ry1;\n");
+    printf("ahora z1 toma el valor de ry1 (que es y1 = 10.2)\n\n");
+    double &r1 = *px1; // a px1 (x= 3.14) le damos una referencia r1
+    printf("double &r1 = *px1;");
+    printf("a px1 (x= 3.14) le damos una referencia r1\n\n");
+    r1 = 99.44; // como r1 es una referencia ahora *px1 = x1 = 99.44
+    printf("r1 = 99.44;\n");
+    printf("como r1 es una referencia ahora *px1 = x1 = 99.44\n\n");
+    px1 = &z1; // el puntero px1 ahora apunta a la variable z1
+    printf("px1 = &z1;\n");
+    printf("el puntero px1 ahora apunta a la variable z1\n\n");
+    ry1 = *px1; // ahora ry1 pasa a ser una referencia de *px1 = z1 = 10.2
+    printf("ry1 = *px1;\n");
+    printf("ahora ry1 pasa a ser una referencia de *px1 = z1 = 10.2\n\n");
+    return 0;
 
 }
