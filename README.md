@@ -1,6 +1,8 @@
 # Pointers-Exercise
 Repository with pointer Exercies in C++ 
 
+## 📊 Equivalencias y diferencias entre punteros y arrays en C++ Supongamos: ```cpp int v[2] = {1,2}; int *px = v;
+
 | Expresión                  | ¿Equivalente? | Explicación                                                                 |
 |-----------------------------|---------------|-----------------------------------------------------------------------------|
 | `int *px = v;` vs `px = &v[0];` | ✅ Sí        | El nombre del array `v` decae a un puntero al primer elemento (`&v[0]`). Ambas formas hacen que `px` apunte a `v[0]`. |
