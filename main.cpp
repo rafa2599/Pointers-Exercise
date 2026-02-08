@@ -49,7 +49,31 @@ int main (int argc , char * argv[] ) {
     printf ("El valor de y es : %d\n\n", y);
 
     swap (x,y);
+    
 
+    printf ("===================================================================\n\n");
+
+    printf ("Definimos el vector v[5]= {23,1,-8,14,7}");
+
+    int v[5]={23,1,-8,14,7};
+    
+    printf ("\n\nHacer px = &v[0]; y hacer py = v ; es lo mismo\n\n");
+
+    px = &v[0] ; 
+
+    py = v ; //
+
+    printf ("px = %p \n", px);
+    printf ("py = %p \n", py);
+    printf ("El valor de px = %d \n", *px);
+    printf ("El valor de py = %d \n", *py);
+
+    printf("\n Recorremos el array imprimiendo sus valores y sus respectivas direcciones en memoria\n");
+
+    for (int i = 0 ; i < 5; i ++){
+        printf ("v[%d] = %d\n",i , v[i]);
+        printf ("v[%d] se encuentra en --> %p\n\n",i, (px++));
+    }
     return 0; 
 
 }
