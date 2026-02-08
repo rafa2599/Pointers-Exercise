@@ -4,7 +4,9 @@
 #include <cstdlib>
 using namespace std;
 
-void swap (int &a , int &b);
+void swap(int,int);
+void swap(int *a, int *b);
+void swap(int &a, int &b);
 
 int main (int argc , char * argv[] ) {
     
@@ -48,7 +50,7 @@ int main (int argc , char * argv[] ) {
     printf ("El valor de x es : %d\n\n", x);
     printf ("El valor de y es : %d\n\n", y);
 
-    swap (x,y);
+    swap (px,py);
     
 
     printf ("===================================================================\n\n");
@@ -77,9 +79,26 @@ int main (int argc , char * argv[] ) {
     return 0; 
 
 }
-void swap(int &a, int &b){
-    int c;
-    cout << "Recibido a=" << a << " b=" << b << "\n"<<endl;
-    c=a; a=b; b=c;
-    cout << " Cambiado a=" << a << " b=" << b << "\n\n"<<endl;
+void swap(int a, int b) //Aqiu cambiamos el valor de las variables localmente
+{ int c;
+  cout<<"\n a="<<a<<"  b="<<b;
+  c=a; a=b; b=c;
+  cout<<"\n a="<<a<<"  b="<<b;   
+     
 }
+void swap(int *a, int *b) //Aqui si modificamos el valor de las variables 
+{ int c; //Accediendo al valor de las variables a traves de punteros
+  cout<<"\n a="<<*a<<"  b="<<*b;
+  c=*a; *a=*b; *b=c;
+  cout<<"\n a="<<*a<<"  b="<<*b;   
+     
+}
+
+void swap(int &a, int &b) //Aqui modificamos los valores mediante el pasaje por referencia
+{int c;
+  cout<<"\n a="<<a<<"  b="<<b;
+  c=a; a=b; b=c;
+  cout<<"\n a="<<a<<"  b="<<b;   
+}
+
+  
