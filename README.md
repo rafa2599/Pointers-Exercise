@@ -1,7 +1,10 @@
 # Pointers-Exercise
 Repository with pointer Exercies in C++ 
 
-## 📊 Equivalencias y diferencias entre punteros y arrays en C++ Supongamos: ```cpp int v[2] = {1,2}; int *px = v;
+## 📊 Equivalencias y diferencias entre punteros y arrays en C++ Supongamos: 
+
+### cpp int v[2] = {1,2}; 
+### int *px = v;
 
 | Expresión                  | ¿Equivalente? | Explicación                                                                 |
 |-----------------------------|---------------|-----------------------------------------------------------------------------|
