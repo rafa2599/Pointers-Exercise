@@ -1,6 +1,75 @@
 # Pointers-Exercise
 Repository with pointer Exercies in C++ 
 
+1. Declaración del Puntero
+
+Para declarar un puntero, se utiliza el asterisco (*).
+C
+
+int *ip;
+
+    Interpretación: El asterisco indica que ip es un puntero a un entero.
+
+    Semántica: La expresión *ip se resolverá a un tipo int, mientras que ip almacena una dirección de memoria.
+
+2. Inicialización (Asignación de Dirección)
+
+Un puntero debe apuntar a una dirección de memoria válida. Utilizamos el operador & (address-of) para obtener la dirección de una variable existente.
+C
+
+int i = 5;  // Variable entera
+ip = &i;    // 'ip' ahora contiene la dirección de memoria de 'i'
+
+    &i: Obtiene la dirección de i.
+
+    Resultado: ip apunta a i. Visualmente, es una flecha desde ip hacia la caja de valor de i.
+
+3. Manipulación (Operador de Contenido *)
+
+Una vez inicializado, usamos el operador * (contents-of o desreferencia) para acceder al valor almacenado en esa dirección.
+Leer el valor
+C
+
+printf("%d\n", *ip); // Imprime 5 (el valor de 'i')
+
+Modificar el valor
+
+Podemos cambiar el valor de la variable original a través del puntero:
+C
+
+*ip = 7; 
+// Resultado: La variable 'i' ahora vale 7.
+
+4. Diferencia: Cambiar Valor vs. Cambiar Puntero
+
+Es crítico distinguir entre modificar el contenido apuntado y cambiar la dirección del puntero.
+
+    Caso A: Modificar el valor (*ip)
+    C
+
+    *ip = 7; 
+
+    La flecha no se mueve. ip sigue apuntando a i, pero el valor dentro de i cambia.
+
+    Caso B: Modificar el puntero (ip)
+    C
+
+    int j = 3;
+    ip = &j;
+
+    La flecha se mueve. ip deja de apuntar a i y ahora apunta a j. El valor de i permanece intacto.
+
+5. Copia de Punteros
+
+Es posible asignar un puntero a otro:
+C
+
+int *ip2;
+ip2 = ip;
+
+    Comportamiento: Esto copia la dirección de memoria (la flecha), no el valor entero.
+
+    Resultado: Tanto ip como ip2 apuntan exactamente a la misma ubicación de memoria.
 ## 📊 Equivalencias y diferencias entre punteros y arrays en C++ 
 
 ### Supongamos:  cpp int v[2] = {1,2};  int *px = v;
