@@ -35,8 +35,13 @@ int main (int argc , char * argv[] ) {
 
     py = px ; //Ahora el puntero py apunta a px 
 
+
     printf ( "px = %p\n\n", px);
     printf ( "py = %p\n\n", py);
+
+    py++ ; //Ahora el puntero py apunta a la siguiente direccion en memoria
+
+    printf( "py = %p\n\n", py);
 
     printf ("======================================\n\n");
 
