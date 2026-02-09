@@ -64,3 +64,22 @@ Es posible asignar un puntero a otro:
 | `*(px+i)` vs `px[i]`        | ✅ Sí        | Igual que con `v`, la notación de array sobre un puntero es azúcar sintáctico para aritmética de punteros. |
 | `*++px` vs `++*px`          | ❌ No        | • `*++px`: Mueve el puntero al siguiente elemento y devuelve ese valor. <br>• `++*px`: Incrementa el valor apuntado por `px`, no el puntero. |
 
+## Tabla: Declaración vs. Retorno
+
+int *copiax2(int *x, int N){  
+    int co[4];
+    //static int co[4];
+    //int *co=(int *)malloc(sizeof(int)*4); 
+    //int *co= new int[4];
+    for (int i=0;i<4;i++) {
+        co[i]=*(x+i)*2;
+    }
+    return co;
+}
+
+| **Parte del Código** | **Código** | **¿Qué significa aquí?** | **Tipo de Dato** |
+|---|---:|---|---|
+| Cabecera (La Promesa) | `int *copiax2(...)` | Declaración de tipo: esta función promete devolver una **dirección de memoria**. | **`int *`** (puntero a `int`) |
+| Cuerpo (La Variable) | `co` | El puntero: es la **variable que guarda la dirección**. En arrays, el nombre actúa como puntero. | **`int *`** (variable puntero) |
+| Retorno Correcto | `return co;` | Entregar: devuelves la variable tal cual; como `co` es una **dirección**, cumple la promesa de la cabecera. | **`int *`** (dirección) |
+| Retorno Incorrecto | `return *co;` | Desreferenciar (acción): `*` es un operador que **viaja a la dirección y trae el valor**. | **`int`** (valor) |
