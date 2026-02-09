@@ -5,7 +5,7 @@
 using namespace std;
 
 int *copiax2(int *x, int N){ //La parte int * indica que la funcion devuelve un puntero 
-    int co[4];
+    //int co[4];
     //static int co[4];
     //int *co=(int *)malloc(sizeof(int)*4); 
     int *co= new int[4];
