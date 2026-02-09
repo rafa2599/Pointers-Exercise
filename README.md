@@ -5,16 +5,14 @@ Repository with pointer Exercies in C++
 
 Para declarar un puntero, se utiliza el asterisco (*).
 
-int *ip;
+**int *ip;**
 
-    - Interpretación: El asterisco indica que ip es un puntero a un entero.
-
-    - Semántica: La expresión *ip se resolverá a un tipo int, mientras que ip almacena una dirección de memoria.
+- Interpretación: El asterisco indica que ip es un puntero a un entero.
+- Semántica: La expresión *ip se resolverá a un tipo int, mientras que ip almacena una dirección de memoria.
 
 ## 2. Inicialización (Asignación de Dirección)
 
 Un puntero debe apuntar a una dirección de memoria válida. Utilizamos el operador & (address-of) para obtener la dirección de una variable existente.
-
 
 - int i = 5;  // Variable entera
 - ip = &i;    // 'ip' ahora contiene la dirección de memoria de 'i'
@@ -23,36 +21,32 @@ Un puntero debe apuntar a una dirección de memoria válida. Utilizamos el opera
 
 ## 3. Manipulación (Operador de Contenido *)
 
-Una vez inicializado, usamos el operador * (contents-of o desreferencia) para acceder al valor almacenado en esa dirección.
+Una vez inicializado, usamos el operador * (desreferencia) para acceder al valor almacenado en esa dirección.
 Leer el valor
 
-- printf("%d\n", *ip); // Imprime 5 (el valor de 'i')
+**printf("%d\n", *ip); // Imprime 5 (el valor de 'i')**
 
-Modificar el valor
-
-Podemos cambiar el valor de la variable original a través del puntero:
-
-
-- *ip = 7; // Resultado: La variable 'i' ahora vale 7.
+Para modificar el valor podemos cambiar el valor de la variable original a través del puntero:
+***ip = 7; // Resultado: La variable 'i' ahora vale 7.** 
 
 ## 4. Diferencia: Cambiar Valor vs. Cambiar Puntero
 
 Es crítico distinguir entre modificar el contenido apuntado y cambiar la dirección del puntero.
 
-   -  Caso A: Modificar el valor (*ip)
-            *ip = 7; 
-
-   - Caso B: Modificar el puntero (ip)
-            int j = 3;
-            ip = &j;
+- Caso A: Modificar el valor de la variable a través del puntero (*ip)
+    **"*ip = 7;"** 
+    
+- Caso B: Modificar la dirección del puntero (ip)
+    **int j = 3;**
+    **ip = &j;**
 
     
 
 ## 5. Copia de Punteros
 
 Es posible asignar un puntero a otro:
-    - int *ip2;
-    - ip2 = ip; // ip2 apunta a donde apunta ip1
+**int *ip2;**
+**ip2 = ip; // ip2 apunta a donde apunta ip1**
 
 
 ## 📊 Equivalencias y diferencias entre punteros y arrays en C++ 
