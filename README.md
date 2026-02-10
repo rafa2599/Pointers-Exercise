@@ -15,8 +15,11 @@ Para declarar un puntero, se utiliza el asterisco (*).
 Un puntero debe apuntar a una dirección de memoria válida. Utilizamos el operador & (address-of) para obtener la dirección de una variable existente.
 
 - int i = 5;  // Variable entera
+
 - ip = &i;    // 'ip' ahora contiene la dirección de memoria de 'i'
+
 - &i: Obtiene la dirección de i.
+
 - Resultado: ip apunta a i. Visualmente, es una flecha desde ip hacia la caja de valor de i.
 
 ## 3. Manipulación (Operador de Contenido *)
@@ -34,10 +37,13 @@ Para modificar el valor podemos cambiar el valor de la variable original a trav�
 Es crítico distinguir entre modificar el contenido apuntado y cambiar la dirección del puntero.
 
 - Caso A: Modificar el valor de la variable a través del puntero (*ip)
+
     **"*ip = 7;"** 
     
 - Caso B: Modificar la dirección del puntero (ip)
+
     **int j = 3;**
+
     **ip = &j;**
 
     
@@ -45,8 +51,10 @@ Es crítico distinguir entre modificar el contenido apuntado y cambiar la direcc
 ## 5. Copia de Punteros
 
 Es posible asignar un puntero a otro:
-**int *ip2;**
-**ip2 = ip; // ip2 apunta a donde apunta ip1**
+
+- **int *ip2;**
+
+- **ip2 = ip; // ip2 apunta a donde apunta ip1**
 
 
 ## 📊 Equivalencias y diferencias entre punteros y arrays en C++ 
