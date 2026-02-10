@@ -83,3 +83,13 @@ int *copiax2(int *x, int N){
 | Cuerpo (La Variable) | `co` | El puntero: es la **variable que guarda la dirección**. En arrays, el nombre actúa como puntero. | **`int *`** (variable puntero) |
 | Retorno Correcto | `return co;` | Entregar: devuelves la variable tal cual; como `co` es una **dirección**, cumple la promesa de la cabecera. | **`int *`** (dirección) |
 | Retorno Incorrecto | `return *co;` | Desreferenciar (acción): `*` es un operador que **viaja a la dirección y trae el valor**. | **`int`** (valor) |
+
+## Tabla: operador . vs operador ->
+
+| **Característica**   | **Operador Punto (.)**                                                                 | **Operador Flecha (->)**                                                                 |
+|------------------|-------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| ¿Cuándo se usa?  | Cuando tienes la instancia (la variable directa) de la estructura.                  | Cuando tienes un puntero (la dirección de memoria) que apunta a la estructura.        |
+| Tipo de dato     | `struct persona p1;`                                                               | `struct persona *pp1;`                                                               |
+| Acción interna   | Accede directamente al miembro dentro de la variable.                              | 1. Viaja a la dirección de memoria.<br>2. Accede al miembro.                          |
+| Ejemplo (Tu código) | `p1.dni = 12445099;`                                                               | `pp1->dni = 10998760;`                                                               |
+| Analogía         | Estás parado dentro de la casa y abres la puerta.                                  | "Tienes un papel con la dirección de la casa. Primero vas a la casa, y luego abres la puerta." |

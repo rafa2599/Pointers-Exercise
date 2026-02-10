@@ -57,20 +57,27 @@ int main(int argc, char *argv[])
      persona p1;
      persona *pp1;
 	        
-     pp1=(persona *)malloc(sizeof(persona));
+     pp1=new persona; // Le indicamos al compilador que en el puntero pp1 
+     //almacene espacio sufiente para un struct tipo persona
 
+    // Esta es la manera de darle valor a las variables del struct tipo FECHA llamado f1
      f1.dia=12;f1.mes=3;f1.anio=1999;
+
+    // Esta es la manera de darle valores a las va. del struct persona llamado p1
      strcpy(p1.nombre,"Juan Lopez");
      p1.dni=12445099;
      p1.nac.dia=1;
      p1.nac.mes=12;
      p1.nac.anio=1999;
 
+     //Esta es la manera de hacer accediendo a través del puntero pp1.
+     //El operador flecha "->" es la manera de acceder a los valores de las var. del struct 
      strcpy(pp1->nombre,"Luisa Castro");
      pp1->dni=10998760;
      pp1->nac.dia=10;
      pp1->nac.mes=2;
      pp1->nac.anio=1980;
+     // imprimimos la direccion de p1 en memoria 
      printpersona(&p1);
      printpersona(pp1);
      free(pp1);
