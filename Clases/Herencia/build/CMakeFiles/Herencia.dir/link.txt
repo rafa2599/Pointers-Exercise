@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/Herencia.dir/link.d CMakeFiles/Herencia.dir/src/main.cpp.o CMakeFiles/Herencia.dir/src/Persona.cpp.o CMakeFiles/Herencia.dir/src/Estudiante.cpp.o -o Herencia

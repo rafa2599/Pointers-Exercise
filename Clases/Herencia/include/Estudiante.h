@@ -1,15 +1,21 @@
 #ifndef ESTUDIANTE_H
 #define ESTUDIANTE_H
 
+#include "Persona.h" // Necesario para heredar
 #include <string>
-using namespace std;
-class Estudiante{
-    private:
-        int numeroEstudiante_;
+#include <iostream> 
+#include <utility>
+// FALTABA ": public Persona"
+class Estudiante : public Persona {
+private:
+    int numeroEstudiante_;
+
+public:
+    // Constructores
+    Estudiante(const string& nombre, int edad, int numeroEstudiante);
     
-    public:
-        Estudiante(const string& nombre, int edad , int numeroEstudiante);
-        Estudiante (string &nombre, int edad, int numeroEstudiante);
-        void mostrarInfo ();
+    // Sobreescribimos mostrarInfo
+    void mostrarInfo() override;
 };
-#endif 
+
+#endif

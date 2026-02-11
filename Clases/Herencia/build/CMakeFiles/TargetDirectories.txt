@@ -1,0 +1,3 @@
+/home/rafa/Documents/AyED/Pointers-Exercise/Clases/Herencia/build/CMakeFiles/Herencia.dir
+/home/rafa/Documents/AyED/Pointers-Exercise/Clases/Herencia/build/CMakeFiles/edit_cache.dir
+/home/rafa/Documents/AyED/Pointers-Exercise/Clases/Herencia/build/CMakeFiles/rebuild_cache.dir
