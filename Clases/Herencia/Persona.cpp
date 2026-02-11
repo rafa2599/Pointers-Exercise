@@ -1,3 +1,4 @@
+#pragma once
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -5,8 +6,11 @@
 #include <cstdio>
 #include <iostream>
 #include <cstdlib>
+#include "Persona.h"
 
 using namespace std; 
+
+
 
 class Persona {
     private: 
@@ -44,6 +48,15 @@ class Persona {
             cout << "\nDestructor llamado para "<<nombre<< endl;
         }
         
-
+        void mostrarInfo (){
+            printf ("Nombre %s\n", nombre );
+            printf("Edad %d\n", edad);
+        }
+        string getNombre (){
+            return nombre;
+        }
+        int getEdad (){
+            return edad; 
+        }
 
 };
