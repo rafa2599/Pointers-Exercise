@@ -75,14 +75,20 @@ Es posible asignar un puntero a otro:
 ## Tabla: Declaración vs. Retorno
 
 int *copiax2(int *x, int N){  
-    int co[4];
-    //static int co[4];
-    //int *co=(int *)malloc(sizeof(int)*4); 
-    //int *co= new int[4];
-    for (int i=0;i<4;i++) {
-        co[i]=*(x+i)*2;
+    -int co[4];
+
+    -//static int co[4];
+
+    -//int *co=(int *)malloc(sizeof(int)*4); 
+
+    -//int *co= new int[4];
+
+    -for (int i=0;i<4;i++) {
+
+        -co[i]=*(x+i)*2;
     }
-    return co;
+    
+    -return co;
 }
 
 | **Parte del Código** | **Código** | **¿Qué significa aquí?** | **Tipo de Dato** |
