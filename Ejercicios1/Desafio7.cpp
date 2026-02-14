@@ -15,6 +15,7 @@ Vamos a reforzar el Desafío 2 pero con una vuelta de tuerca.
 #include <iostream>
 using namespace std;
 int* buscarMaximo (int * , int );
+int* buscarMaximoRecursivo (int *,int );
 
 int main (int argc , char* argv []){
     int v[5]={33,5,66,77,12};
@@ -22,6 +23,9 @@ int main (int argc , char* argv []){
     cout<<"El numero maximo del arreglo es "<< *max <<endl;
     cout<< "\nSu direccion es "<<max<<endl;
     cout<<"\nY esta en la posicion "<< max- &v[0] << endl;
+    int* maxR = buscarMaximoRecursivo(v,5);
+    cout << "\nMAXIMO RECURSIVO \n" << endl;
+    cout << *maxR << endl;
     return 0; 
 }
 
@@ -32,4 +36,16 @@ int* buscarMaximo(int *pr , int tamano){
         (*pr>*max)? max = pr , pr++ : pr++;        
     }
     return max;
+}
+
+int* buscarMaximoRecursivo (int *pr,int n){
+   
+    
+    if ( n == 0) { return pr; } 
+    else { 
+        int* max = buscarMaximoRecursivo(pr+1, n-1);
+        if (*pr > *max) {return pr ;} 
+        else { return max;} 
+    }        
+    
 }
