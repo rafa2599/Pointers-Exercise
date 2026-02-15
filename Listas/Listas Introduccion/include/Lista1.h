@@ -2,7 +2,9 @@
 #define LISTA1_H
 
 #include "Nodo.h"
+#include <string>
 
+using namespace std;
 template <class T> class Lista {
 
 private: Nodo<T>* czo;
@@ -16,6 +18,7 @@ public:
     T cabeza(void); //retorna el dato del primer nodo
     Lista* resto(void); //retorna el puntero al "resto" de la lista
                         //resto= lo que queda de la lista sin la cabeza
+    
     string toPrint(string p);
     T suma(T i);
     int size();
