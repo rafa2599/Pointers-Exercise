@@ -88,6 +88,7 @@ class ColaDeTareasUrgentes : public std::stack<Tarea>
                 this->push(aux.front());
                 aux.pop();
             }
+            return total;
         }
         int ayudaRecursiva( std::queue <Tarea> aux , int u){
 
