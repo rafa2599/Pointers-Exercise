@@ -16,6 +16,7 @@ Vamos a reforzar el Desafío 2 pero con una vuelta de tuerca.
 using namespace std;
 int* buscarMaximo (int * , int );
 int* buscarMaximoRecursivo (int *,int );
+int buscarValor (int [],int,int );
 
 int main (int argc , char* argv []){
     int v[5]={33,5,66,77,12};
@@ -26,6 +27,8 @@ int main (int argc , char* argv []){
     int* maxR = buscarMaximoRecursivo(v,5);
     cout << "\nMAXIMO RECURSIVO \n" << endl;
     cout << *maxR << endl;
+
+    int x[10]={5,7,9,10,12,15,17,22,55};
     return 0; 
 }
 
@@ -47,5 +50,17 @@ int* buscarMaximoRecursivo (int *pr,int n){
         if (*pr > *max) {return pr ;} 
         else { return max;} 
     }        
+    
+}
+int buscarValor (int x[],int n,int valor){
+    
+   if (n<=0){return 1;}
+
+   else if (valor == x[n/2]) {return x[n/2];}
+
+   else if (valor>= x[n/2]) { return buscarValor( x + 1 + (n/2) , n - (n/2)+ 1 , valor ) ; }
+
+   else { return buscarValor ( x , n/2 , valor ) ; }
+
     
 }
