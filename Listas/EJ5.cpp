@@ -33,31 +33,49 @@ typedef struct {
     int prioridad;
 }Paquete;
 
-class ColaDeTrafico : public stack<Paquete>{
+class ColaDeTrafico : public queue<Paquete>{
 
     public:
         int contarCriticosRecursivo(int nivel){
-            stack<Paquete> aux; 
+            queue<Paquete> aux; 
 
             int total = recursivoAuxiliar(aux,nivel);
 
             while (!aux.empty()){
-                
+                this->push(aux.front());
+                aux.pop();
             }
         }
-        void depurarPaquetesGrandes(int limite){}
+        void depurarPaquetesGrandes(int limite){
+            queue<Paquete> aux; 
+            while (!this->empty()){
+
+                if (this->front().tamano> limite){ this->pop(); } 
+                else {
+                    aux.push(this->front());
+                    this->pop();
+                }
+            
+            while (!aux.empty()){
+                this->push(aux.front());
+                aux.pop();
+            }
+
+            }
+        }
 
     private:
-        int recursivoAuxiliar(stack<Paquete> &aux, int nivel){
+        int recursivoAuxiliar(queue<Paquete> &aux, int nivel){
 
             if (this->empty()){
                 return 0;
 
             }
-            int suma = (this->top().prioridad>=nivel)? 1:0;
-            aux.push(this->top());
+            int suma = (this->front().prioridad>=nivel)? 1:0;
+            aux.push(this->front());
             this->pop();
 
             return suma + recursivoAuxiliar(aux,nivel);
         }
+
 };
