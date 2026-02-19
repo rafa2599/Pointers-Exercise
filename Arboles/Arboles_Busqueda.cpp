@@ -233,41 +233,56 @@ void Arbol<T> :: eliminarNodo(T x){
 }
 
 template <class T> 
-void Arbol<T> ::eliminarAuxiliar (Nodo<T>* &aux, T x){
+void Arbol<T>::eliminarAuxiliar(Nodo<T>* &aux, T x) {
+    
+    // 1. ESCUDO: Si llegamos al final y no estaba (o el árbol está vacío)
+    if (aux == NULL) {
+        return; 
+    }
 
-    if (aux->dato == x){
-        if (aux->der== NULL && aux->izq == NULL){ delete aux;}
-
-        Nodo<T>* a_borrar = aux;
-        if (aux->izq != NULL and aux->der == NULL){
-            aux = aux->izq;
-            delete a_borrar;
-
+    // 2. BÚSQUEDA: Navegamos hasta encontrar al culpable
+    if (x < aux->dato) {
+        eliminarAuxiliar(aux->izq, x); // Buscamos por la izquierda
+    } 
+    else if (x > aux->dato) {
+        eliminarAuxiliar(aux->der, x); // Buscamos por la derecha
+    } 
+    
+    // 3. EJECUCIÓN: ¡Lo encontramos! (aux->dato == x)
+    else {
+        
+        // CASO A: No tiene hijo izquierdo (Cubre cuando es Hoja o solo tiene hijo derecho)
+        if (aux->izq == NULL) {
+            Nodo<T>* a_borrar = aux; // Guardamos al nodo actual para no perderlo
+            aux = aux->der;          // Magia del &: La flecha del padre ahora apunta al hijo derecho
+            delete a_borrar;         // Destruimos el nodo original
         }
-
-        if (aux->der != NULL and aux->izq == NULL){
-            aux = aux->der;
-            delete a_borrar;
+        
+        // CASO B: No tiene hijo derecho (Solo tiene hijo izquierdo)
+        else if (aux->der == NULL) {
+            Nodo<T>* a_borrar = aux; 
+            aux = aux->izq;          // La flecha del padre ahora apunta al hijo izquierdo
+            delete a_borrar;         
+        }
+        
+        // CASO C: Tiene DOS hijos (El jefe final)
+        else {
+            // 1. Buscamos al reemplazo ideal: "El menor de los mayores"
+            // (Nos vamos 1 paso a la derecha, y luego todo a la izquierda)
+            Nodo<T>* reemplazo = aux->der;
+            while (reemplazo->izq != NULL) {
+                reemplazo = reemplazo->izq;
+            }
+            
+            // 2. Clonamos el dato del reemplazo en el nodo actual
+            aux->dato = reemplazo->dato;
+            
+            // 3. Mandamos a borrar al nodo de reemplazo original (que ahora está duplicado)
+            eliminarAuxiliar(aux->der, reemplazo->dato);
         }
     }
+}
    
     
-}
 
 
-/* if (aux->der== NULL && aux->izq == NULL){
-        delete aux;
-    }
-    if (aux->izq != NULL and aux->der == NULL){
-        Nodo<T>* &Aborrar =  
-        
-
-    }
-    if (aux->der != NULL and aux->izq == NULL){
-        Nodo<T> aux1 = aux->der->der;
-        Nodo<T> aux2 = &aux->der;
-        aux->izq = aux1;
-        delete aux2;
-        
-
-    }*/
