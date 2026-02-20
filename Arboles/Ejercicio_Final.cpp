@@ -21,13 +21,18 @@ class BST {
 };
 
 bool BST::esBalanceado() {
-    // Si la función recursiva devuelve -1, significa que encontró un desbalance
-    // Si devuelve cualquier otro número (la altura), entonces está balanceado.
-    if (esBalanceadoRecursivo(raiz) == -1) {
-        return false;
-    } else {
+
+    if (raiz == NULL){
         return true;
     }
+    int izq = esBalanceadoRecursivo(raiz->izquierdo);
+    int der = esBalanceadoRecursivo(raiz->derecho);
+
+    if (izq == 0 && der == 0 ){return true ;}
+
+    if (abs (izq-der)<=1){return true;}
+
+    else {return false;}
 }
 
 int BST::esBalanceadoRecursivo(Nodo* aux) {
@@ -35,24 +40,9 @@ int BST::esBalanceadoRecursivo(Nodo* aux) {
     if (aux == NULL) {
         return 0;
     }
+    
+    return 1 + max(esBalanceadoRecursivo(aux->izquierdo),esBalanceadoRecursivo(aux->derecho));
 
-    // 1. Obtenemos la altura del subárbol izquierdo
-    int altIzquierda = esBalanceadoRecursivo(aux->izquierdo);
-    // Si el izquierdo ya dio error (-1), propagamos el error hacia arriba
-    if (altIzquierda == -1) return -1; 
-
-    // 2. Obtenemos la altura del subárbol derecho
-    int altDerecha = esBalanceadoRecursivo(aux->derecho);
-    // Si el derecho ya dio error (-1), propagamos el error hacia arriba
-    if (altDerecha == -1) return -1; 
-
-    // 3. Decisión: ¿La diferencia de alturas es mayor a 1?
-    if (abs(altIzquierda - altDerecha) > 1) {
-        return -1; // Retornamos -1 para indicar que este subárbol NO está balanceado
-    }
-
-    // 4. Si está balanceado, calculamos y retornamos su altura real
-    return 1 + max(altIzquierda, altDerecha);
 }
 
 int main (int argc , char* argv []){
